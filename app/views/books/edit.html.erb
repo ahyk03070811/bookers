@@ -3,6 +3,14 @@
 </div>
 
 <h1>Editing Book</h1>
+<% if @book.errors.any? %>
+<%= @book.errors.count %>An error has occurred
+<ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>
 
 <%= form_with model: @book do |f| %>
  <h6>Title</h6>
