@@ -1,18 +1,18 @@
 <div>
- <%= flash[:notice] 
+ <%= flash[:notice] %>
 </div>
 
 <h1>Editing Book</h1>
 
-<%= form_with model: @book,url :book_path(@book.id) do |f| %>
+<%= form_with model: @book do |f| %>
  <h6>Title</h6>
  <%= f.text_field :title %>
- 
+
  <h6>Body</h6>
  <%= f.text_area :body %>
- 
+
  <%= f.submit 'Update Book' %>
  <%= link_to "Show",book_path %>
  <%= link_to "Back",books_path %>
- 
+
  <% end %>
