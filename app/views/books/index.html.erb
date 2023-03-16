@@ -1,3 +1,7 @@
+<div>
+    <%= flash[:notice] %>
+</div>
+
 <h1>Books</h1>
 
 <table>
@@ -9,10 +13,24 @@
   </thead>
   <tbody>
     <%= @books.each do |book| %>
+    <tb>
+     <%= link_to "Show",@book_path(book.id) %>
+     <%= link_to "Edit",@book_path(book.id) %>
+     <%= link_to "destroy",@book_path(book.id),method: :delete,"date-confirm"=>"Are you sure?" %>
+    </tb>
+    <% end %>
   </tbody>
 </table>
 
 <h2>New book</h2>
+<% if @book.errors.any? %>
+<%= @book.errors.count %>An error has occurred
+<ul>
+    <% @book.eroors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>
 
 <%= form_with model: @book do |f| %>
  <h4>Title</h4>
