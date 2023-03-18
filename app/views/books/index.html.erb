@@ -12,13 +12,13 @@
     </tr>
   </thead>
   <tbody>
-   <%= @books.each do |book| %>
+   <% @books.each do |book| %>
    <th><%= book.title %></th>
    <th><%= book.body %></th>
-    
+
    <td><%= link_to "Show",book_path(book.id) %></td>
    <td><%= link_to "Edit",edit_book_path(book.id) %></td>
-   <td><%= link_to "destroy",book_path(book.id),method: :delete, "data-confirm" => "Are you sure?" %></td>
+   <td><%= link_to "Destroy",book_path(book.id),method: :delete, "data-confirm" => "Are you sure?" %></td>
 
     <% end %>
   </tbody>
